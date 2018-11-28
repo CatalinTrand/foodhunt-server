@@ -36,13 +36,13 @@ class offerHandler
         return $angle * 6371000;
     }
 
-    public static function getOffers($lat,$lng,$distance){
+    public static function getOffers($lat,$lng,$radius){ //radius in meters
         //get all offers for a user in range
         $allOffers = [];
         $trucks = DB::select("SELECT * FROM Trucks");
         $nearTrucks = [];
         foreach ($trucks as $truck){
-            if(self::distanceBetween($lat,$lng,$truck) < $distance)
+            if(self::distanceBetween($lat,$lng,$truck) < $radius)
                 array_push($nearTrucks,$truck);
         }
         foreach ($nearTrucks as $nearTruck){

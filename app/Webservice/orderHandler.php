@@ -31,7 +31,7 @@ class orderHandler
     }
 
     public static function deliverOrder($truckID,$time,$address){
-        DB::update("UPDATE Orders SET delivered = TRUE WHERE truckID = '$truckID' AND creation_time = '$time' AND address = '$address'");
+        DB::update("UPDATE Orders SET delivered = 1 WHERE truckID = '$truckID' AND creation_time = '$time' AND address = '$address'");
     }
 
     public static function archiveOrders(){

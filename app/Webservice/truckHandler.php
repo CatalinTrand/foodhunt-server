@@ -12,6 +12,6 @@ namespace App\Webservice;
 class truckHandler
 {
     public static function updateTruckPosition($truckID,$lat,$lng){
-        DB::update("UPDATE Trucks SET lat = '$lat', lng = '$lng' WHERE id = '$truckID'");
+        DB::update("UPDATE Trucks SET lat = '$lat', lng = '$lng',last_updated = NOW() WHERE id = '$truckID'");
     }
 }
