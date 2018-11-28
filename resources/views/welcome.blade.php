@@ -67,43 +67,7 @@
 <div class="flex-center position-ref full-height">
     @php
         use Illuminate\Database\Schema\Blueprint;use Illuminate\Support\Facades\Schema;
-        echo "creating offers table";
-        Schema::create('Offers', function (Blueprint $table) {
-            $table->string('id');
-            $table->string('truckID');
-            $table->string('name');
-            $table->string('price');
-            $table->integer('quantity');
-            $table->boolean('available')->default(1);
-            $table->dateTime('creation_time')->default(now());
-        });
-        echo "creating orders table";
-        Schema::create('Orders', function (Blueprint $table) {
-            $table->string('id');
-            $table->string('truckID');
-            $table->string('cart');
-            $table->string('address');
-            $table->integer('phone');
-            $table->boolean('available')->default(0);
-            $table->dateTime('creation_time')->default(now());
-        });
-        echo "creating orders_arch table";
-        Schema::create('Orders_arch', function (Blueprint $table) {
-            $table->string('id');
-            $table->string('truckID');
-            $table->string('cart');
-            $table->string('address');
-            $table->integer('phone');
-            $table->boolean('available')->default(0);
-            $table->dateTime('creation_time')->default(now());
-        });
-        echo "creating trucks table";
-        Schema::create('Trucks', function (Blueprint $table) {
-            $table->string('id');
-            $table->string('lat');
-            $table->string('lng');
-            $table->dateTime('last_updated')->default(now());
-        });
+        
     @endphp
     @if (Route::has('login'))
         <div class="top-right links">
