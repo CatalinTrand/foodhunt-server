@@ -1,0 +1,4 @@
+Offers - TruckID, name, price, quantity
+Trucks - ID,lastLat,lastLng
+Orders - TruckID,cart,address,phone
+Orders_arch - Same as before
