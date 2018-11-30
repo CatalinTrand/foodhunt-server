@@ -4,7 +4,7 @@ Orders - TruckID,cart,address,phone
 Orders_arch - Same as before
 
 Users - idn,name,address,phone,type,password
-authTable - user_id,code
+AuthTable - user_id,code
 
 serie sasiu;
 ce investitii necesita;

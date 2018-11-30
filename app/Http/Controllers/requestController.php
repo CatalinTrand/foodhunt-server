@@ -6,6 +6,7 @@ use App\Webservice\offerHandler;
 use App\Webservice\orderHandler;
 use App\Webservice\scheduledFoodDeliveries;
 use App\Webservice\truckHandler;
+use App\Webservice\userAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -119,5 +120,41 @@ class requestController extends Controller
 
     public function getSchedules(){
         return scheduledFoodDeliveries::getSchedules();
+    }
+
+    //user
+    public function createUser(){
+        return userAuth::createUser(
+            Input::get("name"),
+            Input::get("address"),
+            Input::get("phone"),
+            Input::get("email"),
+            Input::get("type"),
+            Input::get("password")
+        );
+    }
+
+    public function editUser(){
+        userAuth::editUser(
+            Input::get("user")
+        );
+    }
+
+    public function deleteUser(){
+        userAuth::deleteUser(
+            Input::get("id")
+        );
+    }
+
+    public function loginUser(){
+        return userAuth::loginUser(
+            Input::get("credentials")
+        );
+    }
+
+    public function logoutUser(){
+        userAuth::logoutUser(
+            Input::get("id")
+        );
     }
 }
