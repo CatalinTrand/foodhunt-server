@@ -26,6 +26,10 @@ class orderHandler
         return $id;
     }
 
+    public static function deleteOrder($id){
+        DB::delete("DELETE FROM Orders WHERE id = '$id'");
+    }
+
     public static function getOrders($truckID){
         return DB::select("SELECT * FROM Orders WHERE truckID = '$truckID'");
     }

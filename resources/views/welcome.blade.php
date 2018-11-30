@@ -67,7 +67,7 @@
 <div class="flex-center position-ref full-height">
     @php
         use Illuminate\Database\Schema\Blueprint;use Illuminate\Support\Facades\Schema;
-        
+
     @endphp
     @if (Route::has('login'))
         <div class="top-right links">

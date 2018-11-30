@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Webservice\offerHandler;
 use App\Webservice\orderHandler;
+use App\Webservice\scheduledFoodDeliveries;
 use App\Webservice\truckHandler;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -17,6 +18,18 @@ class requestController extends Controller
             Input::get("name"),
             Input::get("price"),
             Input::get("quantity")
+        );
+    }
+
+    public function deleteOffer(){
+        offerHandler::deleteOffer(
+            Input::get("id")
+        );
+    }
+
+    public function editOffer(){
+        offerHandler::editOffer(
+            Input::get("offerValues")
         );
     }
 
@@ -41,6 +54,12 @@ class requestController extends Controller
             Input::get("offers"),
             Input::get("address"),
             Input::get("phone")
+        );
+    }
+
+    public function deleteOrder(){
+        orderHandler::deleteOrder(
+            Input::get("id")
         );
     }
 
@@ -74,5 +93,31 @@ class requestController extends Controller
             Input::get("lat"),
             Input::get("lng")
         );
+    }
+
+    //schedules
+    public function createSchedule(){
+        return scheduledFoodDeliveries::createSchedule(
+            Input::get("date"),
+            Input::get("name"),
+            Input::get("quantity"),
+            Input::get("supplier")
+        );
+    }
+
+    public function deleteSchedule(){
+        scheduledFoodDeliveries::deleteSchedule(
+            Input::get("id")
+        );
+    }
+
+    public function editSchedule(){
+        scheduledFoodDeliveries::editSchedule(
+            Input::get("schedule")
+        );
+    }
+
+    public function getSchedules(){
+        return scheduledFoodDeliveries::getSchedules();
     }
 }

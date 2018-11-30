@@ -22,6 +22,14 @@ class offerHandler
         DB::insert("INSERT INTO Offers (truckID,id,name,price,quantity,available) VALUES ('$truckID','$id','$name','$price','$quantity')");
     }
 
+    public static function deleteOffer($id){
+        DB::delete("DELETE FROM Offers WHERE id = '$id'");
+    }
+
+    public static function editOffer($offerValues){
+        DB::update("UPDATE Offers SET truckID = '$offerValues->truckID', name ='$offerValues->name', price = '$offerValues->price', quantity = '$offerValues->quantity', available = '$offerValues->available' WHERE id = '$offerValues->id'");
+    }
+
     static function distanceBetween($lat,$lng,$truck){
         //get distance using lat-lng
         $tLat = $truck->lat;
